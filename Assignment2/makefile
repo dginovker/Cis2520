@@ -9,7 +9,7 @@ SRCDIR = src/
 OBJDIR = obj/
 LIBDIR = lib/
 
-SOURCE = $(SRCDIR)LinkedListAPI.c
+SOURCE = $(SRCDIR)intListTest.c $(SRCDIR)LinkedListAPI.c $(SRCDIR)Test.c $(SRCDIR)parseFile.c $(SRCDIR)testParseInput.c $(SRCDIR)priorityQueueAPI.c $(SRCDIR)priorityQueueTest.c $(SRCDIR)patient.c $(SRCDIR)simulation.c
 PROGNAME = $(BINDIR)main.out
 
 default: compile
@@ -18,7 +18,7 @@ ranlib:
 >ranlib $(LIBDIR)*
 
 test:
->$(CC) $(CFLAGS) $(SRCDIR)testMain.c $(SOURCE) -L$(LIBDIR) -lLinkedList -o $(BINDIR)testMain.out
+>$(CC) $(CFLAGS) $(SRCDIR)testMain.c $(SOURCE) -o $(BINDIR)testMain.out
 
 compile:
->$(CC) $(CFLAGS) $(SRCDIR)main.c $(SOURCE) -L$(LIBDIR) -lLinkedList -o $(PROGNAME)
+>$(CC) $(CFLAGS) $(SRCDIR)main.c $(SOURCE) -o $(PROGNAME)
