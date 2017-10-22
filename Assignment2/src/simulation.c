@@ -1,6 +1,7 @@
 #include "../includes/simulation.h"
 #include "../includes/priorityQueueAPI.h"
 #include "../includes/patient.h"
+#include "../includes/LinkedListAPI.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -55,7 +56,7 @@ int getTimeReq(char *string)
   return 0;
 }
 
-void runSimulation(PQ* patientList)
+void runSimulation(PQ* patientList, List* orderList)
 {
   int clock = 0;
 
@@ -66,15 +67,15 @@ void runSimulation(PQ* patientList)
   {
     if (peekPQ(patientList) == NULL)
     {
-      return;
+      break;
     }
     else
     {
-      patientList -> printNode(peekPQ(patientList) -> data);
-      //hospitalPQ -> printNode ((void*)getPatient(line));
       clock += getTimeReq( ((Patient*)(peekPQ(patientList) -> data)) -> symptomCode);
+      ((Patient*)(peekPQ(patientList) -> data)) -> timeFinished = clock; //do you like brackets?
       popPQ(patientList);
-      printf("\t%d\n", clock);
     }
   }
+  printf("Printing forward list:\n");
+  printForward(orderList);
 }

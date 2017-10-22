@@ -31,7 +31,7 @@ void insertPQ(PQ *list, void* toBeAdded, int priority)
   a -> data = toBeAdded;
   a -> priorityValue = priority;
 
-  if (list -> head == NULL)
+  if (list -> head == NULL)//The queue is empty
   {
     a -> next = NULL;
     a -> previous = NULL;
@@ -39,7 +39,7 @@ void insertPQ(PQ *list, void* toBeAdded, int priority)
     list -> tail = a;
     return;
   }
-  if (a -> priorityValue < list -> head -> priorityValue)
+  if (a -> priorityValue < list -> head -> priorityValue)//When the new priority value is less than the head's priority
   {
     a -> next = list -> head;
     a -> previous = NULL;
@@ -47,8 +47,8 @@ void insertPQ(PQ *list, void* toBeAdded, int priority)
     list -> head = a;
     return;
   }
-  previous = list -> head;
-  while (previous -> next != NULL)
+  previous = list -> head;//Previous = list head
+  while (previous -> next != NULL)//Previous -> next != Null (list head's -> next != null)
   {
     current = previous -> next;
     if (a -> priorityValue < current -> priorityValue)
@@ -61,7 +61,7 @@ void insertPQ(PQ *list, void* toBeAdded, int priority)
     }
     previous = current;
   }
-  if (previous -> next == NULL)
+  if (previous -> next == NULL) //If the previous next == NULL: We reached the end, therefore add to end
   {
     previous -> next = a;
     a -> previous = previous;

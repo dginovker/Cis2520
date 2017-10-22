@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "../includes/priorityQueue.h"
+#include "../includes/priorityQueueAPI.h"
 #include "../includes/LinkedListAPI.h"
 
 /**

@@ -15,6 +15,6 @@
  * Runs the simulation loop and prints out the time everyone leaves the hospital
  * @param patientList: The list with all the patients
 */
-void runSimulation(PQ* patientList);
+void runSimulation(PQ* patientList, List *orderList);
 
 #endif

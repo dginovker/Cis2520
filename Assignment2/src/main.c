@@ -11,11 +11,13 @@ int main(int argc, char **argv)
 {
   char line[80];
   PQ *hospitalPQ = NULL;
+  List *inputList = NULL;
   FILE *fp = NULL;
   int starve = 0;
   int decreasePriority=5;
 
   hospitalPQ = createPQ(*printPatient, *deletePatient, NULL);
+  inputList = initializeList(*printAnswer, *deletePatient, NULL);
 
   if (argc < 2)
   {
@@ -38,10 +40,10 @@ int main(int argc, char **argv)
       decreasePriority--;
     }
     starve++;
-    insertPQ(hospitalPQ, (void*)getPatient(line), priorityNumber(line) - decreasePriority);
+    insertBack(inputList, (void*)getPatient(line));
+    insertPQ(hospitalPQ, getFromBack(inputList), priorityNumber(line) - decreasePriority);
 
     hospitalPQ -> printNode ((void*)getPatient(line));
-    printf("\n");
   }
 
   printf("Note: to prevent starvation, an aging algorithm has been implemented and patients added at the end have a chance of being pushed slightly higher in the list.\n");
@@ -49,9 +51,10 @@ int main(int argc, char **argv)
   getMorePatients(hospitalPQ, starve, decreasePriority);
 
 
-  runSimulation(hospitalPQ);
+  runSimulation(hospitalPQ, inputList);
 
   hospitalPQ = destroyPQ(hospitalPQ);
+  inputList = deleteList(inputList);
 
   printf("Bye!\n");
   return 0;

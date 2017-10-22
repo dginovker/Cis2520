@@ -30,11 +30,18 @@ typedef struct patient{
 Patient *getPatient(char *string);
 
 /**
- *Prints all the information about a patient
+ *Prints all the information about a patient, except the finished time
  *@return void
  *@param patient to be printed
  **/
 void printPatient(void *a);
+
+/**
+ *Prints all the information about a patient, including the finish time
+ *@return void
+ *@param patient to be printed
+ **/
+void printAnswer(void *a);
 
 /**
  *Deletes and frees a patient from a PQ

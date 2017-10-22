@@ -1,6 +1,6 @@
 #include "../includes/Test.h"
 #include "../includes/priorityQueueTest.h"
-#include "../includes/priorityQueue.h"
+#include "../includes/priorityQueueAPI.h"
 #include <stdio.h>
 #include <stdlib.h>
 

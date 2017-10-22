@@ -18,9 +18,17 @@ Patient *getPatient(char *string)
 
 void printPatient(void *a)
 {
-  printf("%s", ((Patient*)a) -> patientID);
+  printf("%s   ", ((Patient*)a) -> patientID);
   printf("\t\t%d", ((Patient*)a) -> priority);
-  printf("\t\t\t%s", ((Patient*)a) -> symptomCode);
+  printf("\t\t\t%s\n", ((Patient*)a) -> symptomCode);
+}
+
+void printAnswer(void *a)
+{
+  printf("%s   ", ((Patient*)a) -> patientID);
+  printf("\t\t%d", ((Patient*)a) -> priority);
+  printf("\t\t%s", ((Patient*)a) -> symptomCode);
+  printf("\t%d\n", ((Patient*)a) -> timeFinished);
 }
 
 void deletePatient(void *a)
