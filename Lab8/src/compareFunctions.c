@@ -15,27 +15,15 @@ int compareAscending(void* a, void* b)
 
 int compareAscendingEvensBeforeOdd(void* a, void* b)
 {
-  int modifiedA = *(int*)a;
-  int modifiedB = *(int*)b;
-
-  if (modifiedA%2 == 0)
+  if ((*(int*)a%2 == 0 && *(int*)b%2 == 0) || (*(int*)a%2 == 1 && *(int*)b%2 == 1))
   {
-    modifiedA -= 1000000;
+    return compareAscending(a, b);
   }
-  if (modifiedB%2 == 0)
-  {
-    modifiedB -=1000000;
-  }
-  if(modifiedA > modifiedB)
-  {
-    return 1;
-  }
-  if(modifiedA < modifiedB)
+  else if (*(int*)a%2 == 0 && *(int*)b%2 == 1)
   {
     return -1;
   }
-  return 0;
-
+  return 1;
 }
 
 int compareDescending(void* a, void* b)

@@ -13,6 +13,7 @@ int compareAscending(void* a, void* b);
 int compareAscendingEvensBeforeOdd(void* a, void* b);
 
 int compareDescending(void* a, void* b);
+
 void swap (int *a, int *b);
 
 #endif
