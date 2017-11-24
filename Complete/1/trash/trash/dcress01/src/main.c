@@ -13,20 +13,20 @@ int main(int argc, char ** argv)
   CompareFunc comparer;
   SortAlgorithm sorter;
 
-  printf("Please input the number of integers in the array: ");
-  fgets(userInput, 5000, stdin);
-  max = atoi(userInput);
-
-  printf("Please input %d integers, each seperated by a newline:\n", max);
-  for (int i = 0; i < max; i++)
-  {
-    printf("Integer %d: ", i+1);
-    fgets(userInput, 5000, stdin);
-    array[i] = atoi(userInput);
-  }
-
   while (userChoice != 7)
   {
+    printf("Please input the number of integers in the array: ");
+    fgets(userInput, 5000, stdin);
+    max = atoi(userInput);
+
+    printf("Please input %d integers, each seperated by a newline:\n", max);
+    for (int i = 0; i < max; i++)
+    {
+      printf("Integer %d: ", i+1);
+      fgets(userInput, 5000, stdin);
+      array[i] = atoi(userInput);
+    }
+
     printf("Sorting Menu System:\n");
     printf("\n\t1) Bubble Sort (increasing order)");
     printf("\n\t2) Bubble Sort (decreasing order)");

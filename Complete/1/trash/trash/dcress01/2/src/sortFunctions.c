@@ -50,14 +50,7 @@ void sort( char* menuSelection, SortAlgorithm sorter, int* array, int length, Co
 {
   printf("Menu selection: %s\n", menuSelection);
 
-  int arrayCopy[length];
+  sorter(array, length, compare);
 
-  for (int i = 0; i < length; i++)
-  {
-    arrayCopy[i] = array[i];
-  }
-
-  sorter(arrayCopy, length, compare);
-
-  printArray(arrayCopy, length);
+  printArray(array, length);
 }
